@@ -14,8 +14,6 @@ function buildNav() {
     homeTab.id="tab1";
     homeTab.textContent="Home";
     homeTab.addEventListener('click', (e) => {
-        if (e.target.classList.contains("active")) return;
-        setActiveButton(homeTab);
         clearDOM();
         homeLoad();
     })
@@ -26,8 +24,6 @@ function buildNav() {
     menuTab.id="tab2";
     menuTab.textContent="Menu";
     menuTab.addEventListener('click', (e) => {
-        if (e.target.classList.contains('active')) return;
-        setActiveButton(menuTab);
         clearDOM();
         menuLoad();
     });
@@ -41,18 +37,6 @@ function buildNav() {
 
     return buildNav;
 }
-
-function setActiveButton(button) {
-    const buttons = document.querySelectorAll(".button-nav");
-  
-    buttons.forEach((button) => {
-      if (button !== this) {
-        button.classList.remove("active");
-      }
-    });
-  
-    button.classList.add("active");
-  }
 
 function buildBackground() {
     const element = document.querySelector('div#content');
@@ -71,4 +55,5 @@ function clearDOM() {
 
   buildNav();
   buildBackground();
+  homeLoad();
  
