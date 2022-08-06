@@ -1,5 +1,6 @@
 import './style.css';
-
+import homeLoad from './home';
+import menuLoad from './menu';
 
 function buildNav() {
 
@@ -15,6 +16,7 @@ function buildNav() {
     homeTab.addEventListener('click', (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveButton(homeTab);
+        clearDOM();
         homeLoad();
     })
     nav.appendChild(homeTab);
@@ -26,6 +28,7 @@ function buildNav() {
     menuTab.addEventListener('click', (e) => {
         if (e.target.classList.contains('active')) return;
         setActiveButton(menuTab);
+        clearDOM();
         menuLoad();
     });
     nav.appendChild(menuTab);
@@ -59,5 +62,13 @@ function buildBackground() {
     element.appendChild(contentContainer);
 }
 
+function clearDOM() {
+    const contentContainer = document.getElementById('contentContainer');
+    while (contentContainer.firstChild) {
+        contentContainer.removeChild(contentContainer.firstChild);
+    }
+}
+
   buildNav();
   buildBackground();
+ 
